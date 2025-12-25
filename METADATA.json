@@ -1,0 +1,211 @@
+{
+  "name": "TON",
+  "fullName": "The Open Network",
+  "version": "0.5",
+  "description": "Reference implementation of TON Node and tools. The Open Network (TON) is a fast, secure, scalable blockchain focused on handling millions of transactions per second (TPS) with the goal of reaching hundreds of millions of blockchain users.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wsx7524999/ton"
+  },
+  "homepage": "https://ton.org",
+  "license": "LGPL-2.0",
+  "licenses": [
+    {
+      "type": "LGPL-2.0",
+      "file": "LICENSE.LGPL"
+    },
+    {
+      "type": "GPL-2.0",
+      "file": "GPLv2"
+    },
+    {
+      "type": "LGPL-2.0",
+      "file": "LGPLv2"
+    }
+  ],
+  "languages": {
+    "primary": ["C++", "C"],
+    "secondary": ["Python", "CMake", "FunC"]
+  },
+  "technologies": {
+    "buildSystem": "CMake",
+    "cppStandard": "C++20",
+    "compiler": ["Clang 16+", "GCC", "MSVC 2022"],
+    "libraries": [
+      "zlib",
+      "libsecp256k1",
+      "libmicrohttpd",
+      "libsodium"
+    ]
+  },
+  "platforms": {
+    "linux": {
+      "distributions": ["Ubuntu 20.04", "Ubuntu 22.04", "Ubuntu 24.04"],
+      "architectures": ["x86-64", "aarch64"]
+    },
+    "macos": {
+      "versions": ["macOS 11", "macOS 12"],
+      "architectures": ["x86-64", "aarch64"]
+    },
+    "windows": {
+      "versions": ["Windows 10", "Windows 11", "Windows Server"],
+      "architectures": ["x86-64"]
+    },
+    "wasm": {
+      "enabled": true,
+      "description": "WebAssembly build supported via Emscripten"
+    },
+    "android": {
+      "architectures": ["arm64-v8a", "armeabi-v7a", "x86", "x86-64"],
+      "library": "tonlib"
+    }
+  },
+  "components": {
+    "core": [
+      "Node/Validator",
+      "Lite Client",
+      "TON Library (tonlib)",
+      "FunC Compiler",
+      "Fift Interpreter"
+    ],
+    "networking": [
+      "ADNL (Abstract Datagram Network Layer)",
+      "DHT (Distributed Hash Table)",
+      "RLDP (Reliable Large Datagram Protocol)",
+      "Overlay Networks",
+      "Catchain"
+    ],
+    "storage": [
+      "TON Storage",
+      "TON Database (tddb)"
+    ],
+    "tools": [
+      "Blockchain Explorer",
+      "Validator Engine",
+      "Validator Engine Console",
+      "Lite Client",
+      "DHT Server",
+      "RLDP HTTP Proxy"
+    ],
+    "utilities": [
+      "tdactor",
+      "tdnet",
+      "tdutils",
+      "tdtl",
+      "tdfec"
+    ]
+  },
+  "features": {
+    "performance": "Millions of transactions per second (TPS)",
+    "scalability": "Designed for hundreds of millions of blockchain users",
+    "security": "Fast, secure blockchain implementation",
+    "smartContracts": "FunC smart contract language support",
+    "emulation": "TON emulator for testing"
+  },
+  "documentation": {
+    "main": "https://ton.org/docs",
+    "participate": "https://ton.org/docs/participate/nodes/run-node",
+    "develop": "https://docs.ton.org/v3/guidelines/smart-contracts/guidelines",
+    "funC": "https://ton.org/docs/develop/func/overview",
+    "dApps": "https://docs.ton.org/v3/guidelines/dapps/overview",
+    "apis": "https://docs.ton.org/v3/guidelines/dapps/apis-sdks/overview"
+  },
+  "community": {
+    "forum": "https://tonresear.ch",
+    "telegram": {
+      "community": "https://t.me/toncoin",
+      "foundation": "https://t.me/tonblockchain",
+      "developers": "https://t.me/tondev_eng"
+    },
+    "twitter": "https://twitter.com/ton_blockchain",
+    "stackoverflow": "https://stackoverflow.com/questions/tagged/ton",
+    "tonOverflow": "https://answers.ton.org"
+  },
+  "ecosystem": {
+    "wallets": "https://ton.app/wallets",
+    "explorers": "https://ton.app/explorers",
+    "dex": "https://ton.app/dex",
+    "utilities": "https://ton.app/utilities"
+  },
+  "branches": {
+    "master": {
+      "description": "Mainnet stable branch",
+      "usage": "Production-ready code for mainnet"
+    },
+    "testnet": {
+      "description": "Testnet branch with new updates",
+      "usage": "Testing new features before merging to master"
+    },
+    "backlog": {
+      "description": "Candidate branches for testnet",
+      "usage": "Development branches awaiting testnet integration"
+    }
+  },
+  "buildInstructions": {
+    "ubuntu": {
+      "script": "assembly/native/build-ubuntu-shared.sh",
+      "requirements": [
+        "build-essential",
+        "git",
+        "cmake",
+        "ninja-build",
+        "zlib1g-dev",
+        "libsecp256k1-dev",
+        "libmicrohttpd-dev",
+        "libsodium-dev",
+        "llvm-16"
+      ]
+    },
+    "macos": {
+      "script": "assembly/native/build-macos-shared.sh"
+    },
+    "windows": {
+      "script": "assembly/native/build-windows.bat",
+      "requirements": ["MS Visual Studio 2022", "CMake"]
+    },
+    "wasm": {
+      "script": "assembly/wasm/fift-func-wasm-build-ubuntu.sh"
+    },
+    "android": {
+      "script": "assembly/android/build-android-tonlib.sh"
+    }
+  },
+  "testing": {
+    "framework": "pytest",
+    "testCommand": "ctest",
+    "pythonVersion": ">=3.13",
+    "documentation": "doc/Tests.md"
+  },
+  "codeStyle": {
+    "formatter": "clang-format",
+    "linter": "ruff",
+    "typeChecker": "basedpyright"
+  },
+  "keywords": [
+    "blockchain",
+    "ton",
+    "the-open-network",
+    "cryptocurrency",
+    "distributed-systems",
+    "smart-contracts",
+    "func",
+    "validator",
+    "node",
+    "lite-client",
+    "tonlib",
+    "adnl",
+    "dht",
+    "rldp",
+    "catchain",
+    "consensus",
+    "scalability",
+    "tps",
+    "decentralized"
+  ],
+  "metadata": {
+    "createdAt": "2025-12-25",
+    "format": "1.0",
+    "generatedBy": "GitHub Copilot",
+    "purpose": "Comprehensive project metadata for TON blockchain implementation"
+  }
+}
